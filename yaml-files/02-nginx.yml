@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+    env: prod
+    tier: frontend
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+
+# kubectl create -f nginx.yml
+# OR
+# kubectl apply -f nginx.yml
+# kubectl get pods
+# kubectl describe pod <pod_name>

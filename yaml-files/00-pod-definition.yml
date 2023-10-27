@@ -1,0 +1,17 @@
+# YAML to create a pod.
+
+apiVersion: v1
+kind: Pod
+metadata:  # where we define name of pod and labels related to it.
+  name: myapp-pod
+  labels:  # labels could be anything.
+    app: myapp
+    type: front-end
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+
+# kubectl create -f pod-definition.yml
+# kubectl get pods
+# kubectl describe pod myapp-pod
