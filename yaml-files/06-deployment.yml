@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    tier: frontend
+    app: nginx
+spec:  # Same as replicaset.
+  template:
+    metadata:
+      name: myapp
+      labels:
+        tier: frontend
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+      app: nginx

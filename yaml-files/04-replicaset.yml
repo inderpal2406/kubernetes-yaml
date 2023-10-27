@@ -6,7 +6,7 @@ metadata:
     app: myapp
     type: front-end
 spec:
-  template:
+  template:  # Same as pod metadata and spec.
     metadata:
       name: myapp-pod
       labels:
