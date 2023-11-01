@@ -1,0 +1,14 @@
+version: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 80
+      port: 80
+      nodePort: 30000  # This can be between 30000 to 32767.
+  selector:
+    # labels from the pod.
+    app: myapp
+    type: front-end
