@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgres-pod
+  labels:
+    name: postgres-pod
+    app: demo-voting-app
+spec:
+  containers:
+    - name: postgres
+      image: postgres
+      ports:
+        - containerPod: 5432
+      # As worker pod code has password hardcoded in it to access postgres DB,
+      # we setup below credentials for postgres container. If we don't do this,
+      # then worker won't be able to access the postgres DB. Need to check, if
+      # postgres image needs these env vars by default to run as container, like
+      # the MYSQL image needed.
+      env:  # list of dictionaries.
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: POSTGRES_PASSWORD
+          value: "postgres"
