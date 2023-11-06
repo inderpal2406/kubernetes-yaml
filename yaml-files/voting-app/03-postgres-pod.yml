@@ -10,7 +10,7 @@ spec:
     - name: postgres
       image: postgres
       ports:
-        - containerPod: 5432
+        - containerPort: 5432
       # As worker pod code has password hardcoded in it to access postgres DB,
       # we setup below credentials for postgres container. If we don't do this,
       # then worker won't be able to access the postgres DB. Need to check, if
